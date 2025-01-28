@@ -1,0 +1,40 @@
+select * from tbl_shopproduct sp inner join tbl_subtype st on sp.subtype_id=st.subtype_id where sp.shop_id=13
+
+
+
+₹
+"select *tbl_farmer f inner join   tbl_farmerproductbooking fb  on f.inner join tbl_agency a on fb.agency_id=a.agency_id where fb.productbooking_id='" + Bookid + "'";
+ protected void dvpineapplemore_ItemCommand(object sender, DetailsViewCommandEventArgs e)
+    {
+        if (e.CommandName == "buy")
+        {
+            Session["farmerpid"] = e.CommandArgument.ToString();
+            MultiView1.ActiveViewIndex = 1;
+            IdNo=Convert.ToInt32(Session["farmerpid"].ToString());
+            string selQry = "select farmerproduct_stock,farmerproduct_price from tbl_farmerproduct where farmerproduct_id='"+IdNo+"'";
+            SqlDataAdapter adp = new SqlDataAdapter(selQry, con);
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
+            txtquantity.Text = dt.Rows[0]["farmerproduct_stock"].ToString();
+            txtprice.Text = dt.Rows[0]["farmerproduct_price"].ToString();
+
+          protected void Productfill()
+    {
+        string selQry = "select * from tbl_shopproduct ";
+        SqlDataAdapter adp = new SqlDataAdapter(selQry, con);
+        DataTable dt = new DataTable();
+        adp.Fill(dt);
+        ddreviewproduct.DataValueField="shopproduct_id";
+        ddreviewproduct.DataTextField = "shopproduct_name";
+        ddreviewproduct.DataSource = dt;
+        ddreviewproduct.DataBind();
+        ddreviewproduct.Items.Insert(0, "--select--");
+    }
+
+
+
+ string selQry1 = "select farmerproduct_stock from tbl_farmerproduct where farmerproduct_id='"+IdNo+"'";
+            SqlDataAdapter adp1 = new SqlDataAdapter(selQry1, con);
+            DataTable dt1 = new DataTable();
+            adp1.Fill(dt1);
+            stock = Convert.ToInt32(dt1.Rows[0]["farmerproduct_stock"].ToString());

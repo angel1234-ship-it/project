@@ -1,0 +1,28 @@
+   
+  string selAdmin = "select * from tbl_admin where admin_email='" + txtemail.Text + "' and admin_password='" + txtpassword.Text + "'";
+        SqlDataAdapter adpAdmin = new SqlDataAdapter(selAdmin, con);
+        DataTable dtAdmin = new DataTable();
+        adpAdmin.Fill(dtAdmin);
+
+
+        string selAdmin = "select * from tbl_admin where admin_email='" + txtemail.Text + "' and admin_password='" + txtpassword.Text + "'";
+        SqlDataAdapter adpAdmin = new SqlDataAdapter(selAdmin, con);
+        DataTable dtAdmin = new DataTable();
+        adpAdmin.Fill(dtAdmin);
+
+
+else if (dtAdmin.Rows.Count > 0)
+        {
+            Session["adminid"] = dtAdmin.Rows[0]["admin_id"].ToString();
+            Session["adminname"] = dtAdmin.Rows[0]["admin_name"].ToString();
+            Response.Redirect("../Admin/HomePage.aspx");
+        }
+        else if (dtAdmin.Rows.Count > 0)
+        {
+            Session["adminid"] = dtAdmin.Rows[0]["admin_id"].ToString();
+            Session["adminname"] = dtAdmin.Rows[0]["admin_name"].ToString();
+            Response.Redirect("../Admin/HomePage.aspx");
+        }
+ txteaddress.Text = "";
+        txtecontact.Text = "";
+        txteemail.Text = "";
