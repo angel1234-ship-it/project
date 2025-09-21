@@ -1,7 +1,0 @@
-select * from tbl_agency a inner join tbl_farmerproductbooking fb on a.agency_id=fb.agency_id inner join tbl_farmerproduct f on fb.farmerproduct_id=f.farmerproduct_id inner join tbl_category c on f.category_id=c.category_id where  fb.agency_id='"+IdNo+"'and fb.farmerproduct_id='"+edId+"'and fb.payment_status='0'
-select * from tbl_farmerproductbooking fb inner join tbl_farmerproduct fp on fb.farmerproduct_id=fp.farmerproduct_id where fb.agency_id=16 and fb.payment_status='0'
- IdNo = Convert.ToInt32(Session["shopid"].ToString());
-        string selQry = "select * from tbl_subtype st inner join tbl_shopproduct sp on st.subtype_id=sp.subtype_id inner join tbl_shop s on sp.shop_id=s.shop_id inner join tbl_productbooking p on sp.shopproduct_id=p.shopproduct_id inner join tbl_farmer f on p.farmer_id=f.farmer_id where s.shop_id='"+IdNo+"'";
-        SqlDataAdapter adp = new SqlDataAdapter(selQry, con);
-        DataTable dt = new DataTable();
-        adp.Fill(dt);
